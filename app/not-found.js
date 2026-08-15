@@ -1,0 +1,1 @@
+export const metadata={title:'Page not found',robots:{index:false,follow:false}};export default function NotFound(){return <main className="legalPage"><p className="eyebrow">404</p><h1>Page not found.</h1><p className="legalLead">The requested EnteleBANK page could not be found.</p><a className="button" href="/">Return to EnteleBANK</a></main>}
