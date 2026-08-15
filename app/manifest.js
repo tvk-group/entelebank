@@ -1,0 +1,1 @@
+export default function manifest(){return {name:'EnteleBANK',short_name:'EnteleBANK',description:'Proposed UK digital banking institution under development.',start_url:'/',display:'standalone',background_color:'#fbfbfa',theme_color:'#102747',lang:'en-GB',icons:[{src:'/brand/entelebank-mark.svg',sizes:'any',type:'image/svg+xml',purpose:'any'}]}}
