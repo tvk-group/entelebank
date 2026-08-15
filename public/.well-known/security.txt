@@ -1,0 +1,7 @@
+Contact: mailto:security@entelebank.com
+Contact: mailto:regulatory@entelebank.com
+Expires: 2027-08-15T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.entelebank.com/.well-known/security.txt
+Policy: https://www.entelebank.com/security
+Hiring: https://www.entelebank.com/

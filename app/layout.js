@@ -1,4 +1,8 @@
 import './globals.css';
+import LanguageNav from '../components/LanguageNav';
+
+// A per-request CSP nonce is required for Next.js hydration scripts.
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: { default: 'EnteleBANK | A TVK Group Company', template: '%s | EnteleBANK' },
@@ -13,7 +17,7 @@ export default function RootLayout({ children }) {
         <div className="status">PROPOSED UK BANKING INSTITUTION · PRE-AUTHORISATION</div>
         <header>
           <a className="brand" href="/" aria-label="EnteleBANK home"><span>Entele</span><strong>BANK</strong><small>A TVK Group Company</small></a>
-          <nav aria-label="Primary navigation"><a href="/#about">About</a><a href="/#services">Proposed services</a><a href="/security">Security</a><a href="/regulatory">Regulatory</a><a href="/#contact">Contact</a></nav>
+          <div className="headerActions"><nav aria-label="Primary navigation"><a href="/#about">About</a><a href="/#services">Proposed services</a><a href="/security">Security</a><a href="/regulatory">Regulatory</a><a href="/#contact">Contact</a></nav><LanguageNav /></div>
         </header>
         {children}
         <footer>
