@@ -32,6 +32,8 @@ jobs:
         run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Verify lockfile remained unchanged
         run: git diff --exit-code -- package.json package-lock.json
+      - name: Verify zero-omission locale completeness
+        run: node scripts/check-i18n.mjs
       - run: npm run build
       - name: High/critical production dependency audit
         run: npm audit --omit=dev --audit-level=high
