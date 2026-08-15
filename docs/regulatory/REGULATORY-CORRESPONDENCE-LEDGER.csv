@@ -1,0 +1,2 @@
+record_id,date,authority,case_or_application_reference,subject,direction,status,owner,due_date,evidence_location,notes
+SBN-001,2026-08-15,FCA,Case 212473453 / Application 0004840213,Sensitive Business Name request acknowledgement,Inbound,Received,Regulatory,,External correspondence record,"Name-use process only; not banking authorisation"
