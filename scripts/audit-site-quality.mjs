@@ -14,15 +14,14 @@ if(fs.existsSync('app/tr/[[...slug]]/page.js')) failures.push('legacy app/tr cat
 const generic=fs.readFileSync('app/[locale]/[slug]/page.js','utf8');
 if(generic.includes('/visuals/resilience-architecture.svg')) failures.push('localized Infrastructure uses English-text SVG');
 if(!generic.includes("slug==='infrastructure'")) failures.push('localized Infrastructure diagram/rendering branch missing');
+if(!generic.includes('t.sections')) failures.push('localized diagram must derive fallback labels from active locale content');
+for(const forbidden of ["'Technology'","'Governance'"]) if(generic.includes(forbidden)) failures.push(`localized diagram contains English fallback ${forbidden}`);
 const recovered=fs.readFileSync('lib/recoveredFull.js','utf8');
 for(const l of localeCodes.filter(x=>!['en','tr','de','fr','es','it','pt','nl'].includes(x))) if(!recovered.includes(`${l}:`)) failures.push(`${l}: recovered full locale catalogue missing`);
-const visual=fs.readFileSync('lib/architectureLabels.js','utf8');
-for(const l of localeCodes.filter(x=>x!=='en')) if(!visual.includes(`${l}:`)) failures.push(`${l}: localized architecture diagram labels missing`);
-for(const forbidden of ["'Technology'","'Governance'"]) if(generic.includes(forbidden)) failures.push(`localized diagram contains English fallback ${forbidden}`);
 const shells=fs.readFileSync('lib/localeShells.js','utf8');
 for(const l of localeCodes.filter(x=>x!=='en')) if(!shells.includes(`${l}:s(`)) failures.push(`${l}: localized shell missing`);
 const home=fs.readFileSync('app/[locale]/page.js','utf8');
 if(home.includes('<LanguageMenu')) failures.push('localized homepage must not render a second language selector');
 if(!home.includes('localeDark')) failures.push('localized homepage lost institutional navy visual section');
 if(failures.length){console.error('SITE QUALITY AUDIT FAILED\n- '+failures.join('\n- '));process.exit(1)}
-console.log(`Site quality structural audit passed: ${localeCodes.length} locales / ${routes.length} routes contract / localized diagrams enforced`);
+console.log(`Site quality structural audit passed: ${localeCodes.length} locales / ${routes.length} routes / locale-native diagrams`);
