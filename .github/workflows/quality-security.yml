@@ -22,8 +22,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-      - run: npm ci
+      - name: Verify dependency policy
+        run: |
+          node -e "const p=require('./package.json'); for (const [n,v] of Object.entries(p.dependencies||{})) { if (/^[~^*]|latest|x/i.test(v)) { console.error('Dependency must be exactly pinned:', n, v); process.exitCode=1; } }"
+      - name: Install dependencies
+        run: npm install --ignore-scripts --no-fund
       - run: npm run build
       - name: Production dependency audit
         run: npm audit --omit=dev --audit-level=high
+      - name: Require generated lockfile
+        run: test -f package-lock.json
