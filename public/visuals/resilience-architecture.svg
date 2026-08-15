@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc"><title id="title">EnteleBANK layered resilience architecture</title><desc id="desc">Illustrative target architecture connecting customer outcomes, banking services, security and control services, technology platforms and governed third parties.</desc><rect width="1200" height="620" rx="28" fill="#fbfbfa"/><text x="70" y="70" fill="#102747" font-family="Georgia,serif" font-size="34">Resilience by architecture</text><text x="70" y="105" fill="#5d6571" font-family="Arial,sans-serif" font-size="15">Illustrative target model · subject to authorisation, design assurance and vendor selection</text><g font-family="Arial,sans-serif"><rect x="90" y="145" width="1020" height="70" rx="14" fill="#102747"/><text x="600" y="187" text-anchor="middle" fill="white" font-size="18">Customer outcomes · accessibility · support · fraud protection</text><rect x="130" y="245" width="940" height="70" rx="14" fill="#f0e8dc" stroke="#c7a56a"/><text x="600" y="287" text-anchor="middle" fill="#102747" font-size="18">Proposed banking services · accounts · payments · servicing</text><rect x="170" y="345" width="860" height="70" rx="14" fill="#f7f4ef" stroke="#761633"/><text x="600" y="387" text-anchor="middle" fill="#761633" font-size="18">Identity · financial crime · security · monitoring · audit · recovery</text><rect x="210" y="445" width="780" height="70" rx="14" fill="#eef1f4" stroke="#102747"/><text x="600" y="487" text-anchor="middle" fill="#102747" font-size="18">Applications · data · integration · infrastructure · observability</text><path d="M270 555h660" stroke="#c7a56a" stroke-width="2"/><text x="600" y="582" text-anchor="middle" fill="#5d6571" font-size="16">Governed suppliers / cloud / payment and specialist dependencies · EnteleBANK retains accountability</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+<title id="title">EnteleBANK resilience by architecture banking model</title><desc id="desc">A highly legible five-layer target banking architecture showing customer outcomes, proposed banking services, identity security and control, applications and technology, and governed suppliers and dependencies.</desc>
+<rect width="1440" height="900" rx="30" fill="#fbfbfa"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="64" y="72" fill="#0d2342" font-family="Georgia,serif" font-size="42" font-weight="700">Resilience by Architecture</text>
+<text x="64" y="108" fill="#536174" font-size="17">Illustrative target banking model · subject to authorisation, design assurance and vendor selection</text>
+
+<!-- Layer 1 -->
+<rect x="64" y="145" width="1312" height="128" rx="22" fill="#102b50"/>
+<circle cx="125" cy="209" r="38" fill="#183d6d" stroke="#83a7d3" stroke-width="2"/>
+<text x="125" y="216" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">01</text>
+<text x="185" y="190" fill="#fff" font-size="25" font-weight="700">Customer Outcomes</text>
+<text x="185" y="222" fill="#dce7f5" font-size="16">Every capability begins with customer protection and dependable service.</text>
+<g fill="#fff" font-size="17" font-weight="700" text-anchor="middle">
+<text x="735" y="190">Accessibility</text><text x="920" y="190">Support</text><text x="1090" y="190">Fraud Protection</text><text x="1260" y="190">Security First</text>
+</g><g fill="#dce7f5" font-size="14" text-anchor="middle"><text x="735" y="220">Inclusive by design</text><text x="920" y="220">Responsive &amp; reliable</text><text x="1090" y="220">Prevent &amp; detect</text><text x="1260" y="220">Built into every layer</text></g>
+
+<!-- Layer 2 -->
+<rect x="64" y="293" width="1312" height="128" rx="22" fill="#fffaf2" stroke="#c99a4a" stroke-width="2"/>
+<circle cx="125" cy="357" r="38" fill="#d5a04d"/><text x="125" y="364" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">02</text>
+<text x="185" y="338" fill="#0d2342" font-size="25" font-weight="700">Proposed Banking Services</text>
+<text x="185" y="370" fill="#536174" font-size="16">Core capabilities intended for delivery only after required authorisation and approvals.</text>
+<g fill="#0d2342" font-size="17" font-weight="700" text-anchor="middle"><text x="780" y="338">Accounts</text><text x="960" y="338">Payments</text><text x="1140" y="338">Servicing</text><text x="1290" y="338">Future</text></g>
+<g fill="#536174" font-size="14" text-anchor="middle"><text x="780" y="368">Current &amp; savings</text><text x="960" y="368">Domestic &amp; cross-border</text><text x="1140" y="368">Customer administration</text><text x="1290" y="368">Subject to approval</text></g>
+
+<!-- Layer 3 -->
+<rect x="64" y="441" width="1312" height="128" rx="22" fill="#fff7f7" stroke="#a92c47" stroke-width="2"/>
+<circle cx="125" cy="505" r="38" fill="#a71f3d"/><text x="125" y="512" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">03</text>
+<text x="185" y="486" fill="#7d1730" font-size="25" font-weight="700">Identity, Security &amp; Control</text>
+<text x="185" y="518" fill="#536174" font-size="16">Protecting customers, the proposed institution and the financial system.</text>
+<g fill="#7d1730" font-size="16" font-weight="700" text-anchor="middle"><text x="700" y="486">Identity</text><text x="820" y="486">Financial Crime</text><text x="970" y="486">Security</text><text x="1090" y="486">Monitoring</text><text x="1210" y="486">Audit</text><text x="1310" y="486">Recovery</text></g>
+<g fill="#536174" font-size="13" text-anchor="middle"><text x="700" y="516">Strong authentication</text><text x="820" y="516">AML · CTF · sanctions</text><text x="970" y="516">Defense in depth</text><text x="1090" y="516">Detection &amp; alerting</text><text x="1210" y="516">Audit trails</text><text x="1310" y="516">Continuity</text></g>
+
+<!-- Layer 4 -->
+<rect x="64" y="589" width="1312" height="128" rx="22" fill="#f4f8fc" stroke="#4779aa" stroke-width="2"/>
+<circle cx="125" cy="653" r="38" fill="#326b9f"/><text x="125" y="660" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">04</text>
+<text x="185" y="634" fill="#164a7d" font-size="25" font-weight="700">Applications &amp; Technology</text>
+<text x="185" y="666" fill="#536174" font-size="16">A modular, observable and resilient technology foundation.</text>
+<g fill="#164a7d" font-size="16" font-weight="700" text-anchor="middle"><text x="735" y="634">Applications</text><text x="880" y="634">Data</text><text x="1015" y="634">Integration</text><text x="1160" y="634">Infrastructure</text><text x="1300" y="634">Observability</text></g>
+<g fill="#536174" font-size="13" text-anchor="middle"><text x="735" y="664">Modular design</text><text x="880" y="664">Governed &amp; protected</text><text x="1015" y="664">Secure connectivity</text><text x="1160" y="664">Resilient &amp; scalable</text><text x="1300" y="664">Logs · metrics · traces</text></g>
+
+<!-- Foundation -->
+<rect x="64" y="737" width="1312" height="100" rx="22" fill="#ffffff" stroke="#aab7c5" stroke-width="2"/>
+<text x="100" y="777" fill="#0d2342" font-size="22" font-weight="700">Governance, Suppliers &amp; Dependencies</text>
+<text x="100" y="807" fill="#536174" font-size="15">Governed suppliers · cloud providers · payment partners · specialist dependencies</text>
+<rect x="1040" y="759" width="300" height="52" rx="15" fill="#102b50"/><text x="1190" y="792" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">EnteleBANK retains accountability</text>
+<text x="720" y="872" text-anchor="middle" fill="#536174" font-size="14">Target architecture only — not a live banking platform, supplier commitment or regulatory approval.</text>
+</g></svg>
