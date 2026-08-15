@@ -1,6 +1,9 @@
 import './globals.css';
 import LanguageNav from '../components/LanguageNav';
 
+// A per-request CSP nonce is required for Next.js hydration scripts.
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: { default: 'EnteleBANK | A TVK Group Company', template: '%s | EnteleBANK' },
   description: 'EnteleBANK is a proposed UK digital banking institution under development.',
