@@ -1,0 +1,7 @@
+import fs from 'node:fs';import {localeCodes} from '../lib/i18n.js';import {registeredFullLocales,getFullLocale} from '../lib/fullLocaleRegistry.js';
+const routes=['/','/about','/personal','/business','/infrastructure','/security','/governance','/roadmap','/regulatory','/privacy','/cookies','/terms'];const failures=[];
+for(const l of localeCodes.filter(x=>x!=='en')){if(!registeredFullLocales.includes(l)){failures.push(`${l}: missing locale catalogue`);continue}const c=getFullLocale(l);for(const r of routes){const p=c?.[r];if(!p)failures.push(`${l}${r}: missing`);else{const text=JSON.stringify(p);if(text.length<260)failures.push(`${l}${r}: suspiciously shallow translation (${text.length} chars)`);if(r!=='/'&&r!=='/cookies'&&!p.sections&&!p.stages)failures.push(`${l}${r}: missing structured content`)}}}
+if(fs.existsSync('app/tr/[[...slug]]/page.js'))failures.push('legacy app/tr catch-all duplicates dynamic locale architecture');
+const derived=fs.readFileSync('lib/fullLocaleRegistry.js','utf8');if(derived.includes('shellDerivedFull'))failures.push('shellDerivedFull is placeholder-derived content and cannot satisfy full-translation quality');
+const generic=fs.readFileSync('app/[locale]/[slug]/page.js','utf8');if(generic.includes('/visuals/resilience-architecture.svg'))failures.push('localized Infrastructure uses English-text SVG; diagram must be localized or language-neutral');
+if(failures.length){console.error('SITE QUALITY AUDIT FAILED\n- '+failures.join('\n- '));process.exit(1)}console.log('Site quality audit passed');
