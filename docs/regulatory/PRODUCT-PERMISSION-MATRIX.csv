@@ -1,0 +1,9 @@
+product_or_capability,status,target_customer,activity_analysis,permission_status,consumer_duty,financial_crime,technology_resilience,launch_gate
+Personal current account,Proposed,Retail,Pending legal/regulatory activity mapping,Not granted / evidence pending,Required assessment,Required assessment,Required assessment,BLOCKED
+Savings,Proposed,Retail,Pending legal/regulatory activity mapping,Not granted / evidence pending,Required assessment,Required assessment,Required assessment,BLOCKED
+Domestic payments/transfers,Proposed,Retail and Business,Pending payment activity/access mapping,Not granted / evidence pending,Required where applicable,Required assessment,Required assessment,BLOCKED
+Debit card services,Proposed,Retail and Business,Pending card/payment perimeter mapping,Not granted / evidence pending,Required where applicable,Required assessment,Required assessment,BLOCKED
+Business current account,Proposed,Business,Pending legal/regulatory activity mapping,Not granted / evidence pending,Customer-type assessment,Required assessment,Required assessment,BLOCKED
+International payments,Proposed,Business,Pending payment/cross-border mapping,Not granted / evidence pending,Customer-type assessment,Required assessment,Required assessment,BLOCKED
+Foreign exchange,Proposed,Business,Pending product/activity/perimeter mapping,Not granted / evidence pending,Customer-type assessment,Required assessment,Required assessment,BLOCKED
+Digital asset capability,Research only,TBD,Separate legal/prudential/conduct/custody analysis required,Not granted / not offered,TBD,Enhanced assessment required,Enhanced assessment required,BLOCKED
