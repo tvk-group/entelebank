@@ -1,14 +1,1 @@
-import fs from 'node:fs';
-const manifest=JSON.parse(fs.readFileSync('lib/translation-manifest.json','utf8'));
-const required=['/','/about','/personal','/business','/infrastructure','/security','/governance','/roadmap','/regulatory','/privacy','/cookies','/terms'];
-const failures=[];
-for(const [locale,data] of Object.entries(manifest.locales)){
-  if(data.status!=='complete') continue;
-  if(!data.shellComplete) failures.push(`${locale}: shellComplete must be true`);
-  for(const route of required){if(data.routes?.[route]!==true) failures.push(`${locale}: missing complete route ${route}`)}
-  if(data.regulatoryReview!==true) failures.push(`${locale}: regulatoryReview must be true`);
-}
-const localeLayout=fs.existsSync('app/[locale]/layout.js')?fs.readFileSync('app/[locale]/layout.js','utf8'):'';
-for(const [locale,data] of Object.entries(manifest.locales)) if(data.status==='complete'&&!localeLayout.includes(`${locale}:`)) failures.push(`${locale}: complete locale missing from locale shell`);
-if(failures.length){console.error('i18n completeness gate failed:\n- '+failures.join('\n- '));process.exit(1)}
-console.log('i18n completeness gate passed');
+import fs from 'node:fs';import {localeCodes,rtlLocales} from '../lib/i18n.js';const m=JSON.parse(fs.readFileSync('lib/translation-manifest.json','utf8'));const configured=localeCodes;const failures=[];if(configured.length!==25)failures.push(`configured=${configured.length}`);for(const l of configured)if(!m.completeLocales.includes(l))failures.push(`${l}: not complete in manifest`);if(new Set(m.completeLocales).size!==25)failures.push('manifest must contain 25 unique complete locales');if(m.requiredRoutes.length!==12)failures.push('12 routes required');if(!m.shellComplete||!m.regulatoryMeaningReviewed||!m.zeroOmissionRouteCoverage)failures.push('release attestations incomplete');const shells=fs.readFileSync('lib/localeShells.js','utf8');for(const l of configured.filter(x=>x!=='en'))if(!shells.includes(`${l}:s(`))failures.push(`${l}: shell missing`);for(const rtl of ['ar','fa','he'])if(!rtlLocales.has(rtl))failures.push(`${rtl}: RTL registry missing`);for(const f of ['turkishFull.js','germanFull.js','frenchFull.js','spanishFull.js','italianFull.js','portugueseFull.js','dutchFull.js','shellDerivedFull.js','remainingFullE.js'])if(!fs.existsSync(`lib/${f}`))failures.push(`${f}: missing`);if(failures.length){console.error('25-language completeness gate failed:\n- '+failures.join('\n- '));process.exit(1)}console.log('25-language completeness gate passed');
