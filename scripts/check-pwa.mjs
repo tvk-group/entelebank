@@ -11,7 +11,7 @@ const sw=readFileSync('public/sw.js','utf8');
 for(const token of ['SKIP_WAITING','/offline','SENSITIVE_PATH','no-store','private','api|auth|account'])if(!sw.includes(token))fail(`service worker is missing ${token}`);
 
 const installer=readFileSync('components/PWAInstall.js','utf8');
-for(const token of ['beforeinstallprompt','appinstalled','controllerchange','Add EnteleBANK to Home Screen'])if(!installer.includes(token))fail(`installer is missing ${token}`);
+for(const token of ['beforeinstallprompt','appinstalled','controllerchange','Add EnteleBANK to Home Screen','const hadController=Boolean(navigator.serviceWorker.controller)','if(!hadController||reloading.current)return'])if(!installer.includes(token))fail(`installer is missing ${token}`);
 
 const layout=readFileSync('app/layout.js','utf8');
 for(const token of ["import './pwa.css'",'<PWAInstall/>',"manifest:'/manifest.webmanifest'",'appleWebApp'])if(!layout.includes(token))fail(`layout is missing ${token}`);
