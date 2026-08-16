@@ -26,6 +26,7 @@ export default function PWAInstall(){
   useEffect(()=>{
     if(isStandalone())return undefined;
     let disposed=false;
+    let handleControllerChange=null;
 
     const showUpdate=(reg)=>{
       if(disposed||!reg?.waiting)return;
@@ -34,6 +35,8 @@ export default function PWAInstall(){
     };
 
     if('serviceWorker'in navigator&&(window.isSecureContext||window.location.hostname==='localhost')){
+      const hadController=Boolean(navigator.serviceWorker.controller);
+
       navigator.serviceWorker.register('/sw.js',{scope:'/',updateViaCache:'none'}).then((reg)=>{
         if(disposed)return;
         setRegistration(reg);
@@ -47,11 +50,12 @@ export default function PWAInstall(){
         void reg.update();
       }).catch(()=>{});
 
-      navigator.serviceWorker.addEventListener('controllerchange',()=>{
-        if(reloading.current)return;
+      handleControllerChange=()=>{
+        if(!hadController||reloading.current)return;
         reloading.current=true;
         window.location.reload();
-      });
+      };
+      navigator.serviceWorker.addEventListener('controllerchange',handleControllerChange);
     }
 
     const beforeInstall=(event)=>{
@@ -73,6 +77,9 @@ export default function PWAInstall(){
       disposed=true;
       window.removeEventListener('beforeinstallprompt',beforeInstall);
       window.removeEventListener('appinstalled',installed);
+      if(handleControllerChange){
+        navigator.serviceWorker.removeEventListener('controllerchange',handleControllerChange);
+      }
     };
   },[]);
 
