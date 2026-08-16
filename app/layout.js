@@ -1,8 +1,51 @@
 import './globals.css';
-import LanguageNav from '../components/LanguageNav';import MobileNav from '../components/MobileNav';import PWAInstall from '../components/PWAInstall';
+import './pwa.css';
+import LanguageNav from '../components/LanguageNav';
+import MobileNav from '../components/MobileNav';
+import PWAInstall from '../components/PWAInstall';
+
 export const dynamic='force-dynamic';
-const title='EnteleBANK | Proposed UK Digital Banking Institution';const description='EnteleBANK is a proposed UK digital banking institution under development, focused on secure banking infrastructure, operational resilience, governance and responsible technology. EnteleBANK is not currently authorised by the PRA or FCA to accept deposits or provide regulated banking services.';
-export const metadata={metadataBase:new URL('https://www.entelebank.com'),title:{default:title,template:'%s | EnteleBANK'},description,applicationName:'EnteleBANK',alternates:{canonical:'/'},icons:{icon:'/brand/entelebank-mark.svg',shortcut:'/brand/entelebank-mark.svg',apple:'/brand/entelebank-mark.svg'},manifest:'/manifest.webmanifest',openGraph:{title,description,url:'https://www.entelebank.com',siteName:'EnteleBANK',locale:'en_GB',type:'website',images:[{url:'/opengraph-image',width:1200,height:630,alt:'EnteleBANK — proposed UK digital banking institution'}]},twitter:{card:'summary_large_image',title,description,images:['/opengraph-image']},robots:{index:true,follow:true}};
+
+const title='EnteleBANK | Proposed UK Digital Banking Institution';
+const description='EnteleBANK is a proposed UK digital banking institution under development, focused on secure banking infrastructure, operational resilience, governance and responsible technology. EnteleBANK is not currently authorised by the PRA or FCA to accept deposits or provide regulated banking services.';
+
+export const viewport={width:'device-width',initialScale:1,viewportFit:'cover',themeColor:'#102747',colorScheme:'light'};
+
+export const metadata={
+  metadataBase:new URL('https://www.entelebank.com'),
+  title:{default:title,template:'%s | EnteleBANK'},
+  description,
+  applicationName:'EnteleBANK',
+  alternates:{canonical:'/'},
+  icons:{
+    icon:[
+      {url:'/icons/entelebank-192.png',sizes:'192x192',type:'image/png'},
+      {url:'/icons/entelebank-maskable.svg',sizes:'any',type:'image/svg+xml'}
+    ],
+    shortcut:'/brand/entelebank-mark.svg',
+    apple:{url:'/icons/apple-touch-icon.png',sizes:'180x180',type:'image/png'}
+  },
+  manifest:'/manifest.webmanifest',
+  appleWebApp:{capable:true,title:'EnteleBANK',statusBarStyle:'default'},
+  other:{'mobile-web-app-capable':'yes'},
+  openGraph:{title,description,url:'https://www.entelebank.com',siteName:'EnteleBANK',locale:'en_GB',type:'website',images:[{url:'/opengraph-image',width:1200,height:630,alt:'EnteleBANK — proposed UK digital banking institution'}]},
+  twitter:{card:'summary_large_image',title,description,images:['/opengraph-image']},
+  robots:{index:true,follow:true}
+};
+
 const nav={about:'About',personal:'Personal',business:'Business',infrastructure:'Infrastructure',security:'Security',governance:'Governance',roadmap:'Roadmap',regulatory:'Regulatory',menu:'Menu',navLabel:'Primary navigation'};
-function Brand({footer=false}){return <a className={`brandLogo${footer?' footerBrand':''}`} href="/" aria-label="EnteleBANK home"><img src="/brand/entelebank-wordmark.svg" alt="EnteleBANK — A TVK Group Company"/></a>}
-export default function RootLayout({children}){return <html lang="en-GB"><body><PWAInstall/><a className="skipLink rootChrome" href="#main-content">Skip to main content</a><div className="status rootChrome">PROPOSED UK BANKING INSTITUTION · PRE-AUTHORISATION</div><header className="rootChrome"><Brand/><div className="headerActions"><nav className="desktopNav" aria-label="Primary navigation"><a href="/about">About</a><a href="/personal">Personal</a><a href="/business">Business</a><a href="/infrastructure">Infrastructure</a><a href="/security">Security</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/regulatory">Regulatory</a></nav><MobileNav labels={nav}/><LanguageNav/></div></header><div id="main-content">{children}</div><footer className="rootChrome"><Brand footer/><div><p>EnteleBANK is under development and is not currently authorised by the PRA or FCA to accept deposits or provide regulated banking services.</p></div><p>© 2026 EnteleBANK.</p></footer></body></html>}
+
+function Brand({footer=false}){
+  return <a className={`brandLogo${footer?' footerBrand':''}`} href="/" aria-label="EnteleBANK home"><img src="/brand/entelebank-wordmark.svg" alt="EnteleBANK — A TVK Group Company"/></a>;
+}
+
+export default function RootLayout({children}){
+  return <html lang="en-GB"><body>
+    <PWAInstall/>
+    <a className="skipLink rootChrome" href="#main-content">Skip to main content</a>
+    <div className="status rootChrome">PROPOSED UK BANKING INSTITUTION · PRE-AUTHORISATION</div>
+    <header className="rootChrome"><Brand/><div className="headerActions"><nav className="desktopNav" aria-label="Primary navigation"><a href="/about">About</a><a href="/personal">Personal</a><a href="/business">Business</a><a href="/infrastructure">Infrastructure</a><a href="/security">Security</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/regulatory">Regulatory</a></nav><MobileNav labels={nav}/><LanguageNav/></div></header>
+    <div id="main-content">{children}</div>
+    <footer className="rootChrome"><Brand footer/><div><p>EnteleBANK is under development and is not currently authorised by the PRA or FCA to accept deposits or provide regulated banking services.</p></div><p>© 2026 EnteleBANK.</p></footer>
+  </body></html>;
+}
