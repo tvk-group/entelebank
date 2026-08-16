@@ -8,7 +8,7 @@ const manifest=readFileSync('app/manifest.js','utf8');
 for(const token of ["display:'standalone'","scope:'/'","/icons/entelebank-192.png","/icons/entelebank-maskable.svg","purpose:'any maskable'"])if(!manifest.includes(token))fail(`manifest is missing ${token}`);
 
 const sw=readFileSync('public/sw.js','utf8');
-for(const token of ['SKIP_WAITING','/offline','SENSITIVE_PATH','no-store','private','/api'])if(!sw.includes(token))fail(`service worker is missing ${token}`);
+for(const token of ['SKIP_WAITING','/offline','SENSITIVE_PATH','no-store','private','api|auth|account'])if(!sw.includes(token))fail(`service worker is missing ${token}`);
 
 const installer=readFileSync('components/PWAInstall.js','utf8');
 for(const token of ['beforeinstallprompt','appinstalled','controllerchange','Add EnteleBANK to Home Screen'])if(!installer.includes(token))fail(`installer is missing ${token}`);
